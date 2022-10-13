@@ -32,9 +32,8 @@ To run the load tests against a local instance, open the jmx file with jmeter an
 
 * Start up the java app.
 * Enable the "Slow" group in the load test
-* Run the load test for a few minutes. You should see response times in the jmeter summary view dropping. 
-* Take a manual thread dump using `kill -3 <pid>` or `jstack <pid> > threads.tdump` 
-* Inspect the heap dump with [Eclipse Memory Analyzer](https://www.eclipse.org/mat/)
+* Run the load test for a few minutes. You should see response times in the jmeter summary view dropping.
+* Take a manual thread dump using `kill -3 <pid>` or `jstack <pid> > threads.tdump`
 * Stop the load test after taking the thread dump
 * Analyze the thread dump using your IDE or an online tool like [fastthread.io](https://fastthread.io/)
 * (Optional) You can lso analyze the impact of the slow endpoint using java flight recorder
@@ -46,5 +45,7 @@ To run the load tests against a local instance, open the jmx file with jmeter an
 * Run the load test for a few minutes.
 * (Optional) Start another flight recording using jcmd `jcmd <pid> JFR.start filename=<file>.jfr`. Stop it
   using `jcmd <pid> JFR.stop`
+* Stop the java process (This ensures the flight recording started using jvm arguments is fully written to the output
+    file)
 * Inspect the Java Flight Recorder (jfr) file using your IDE
   or [Java Mission Control](https://openjdk.org/projects/jmc/)
