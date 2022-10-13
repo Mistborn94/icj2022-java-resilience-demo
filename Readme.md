@@ -44,5 +44,7 @@ To run the load tests against a local instance, open the jmx file with jmeter an
 * Start up the java app. Make sure  `-XX:+FlightRecorder -XX:StartFlightRecording=filename=flight.jfr` is enabled. 
 * Enable the "Busy" group in the load test
 * Run the load test for a few minutes.
-* (Optional) Start another flight recording using jcmd `jcmd <pid> JFR.start filename=<file>.jfr`. Stop it using `![img.png](img.png)`
-* Inspect the Java Flight Recorder (jfr) file using your IDE or [Java Mission Control](https://openjdk.org/projects/jmc/)
+* (Optional) Start another flight recording using jcmd `jcmd <pid> JFR.start filename=<file>.jfr`. Stop it
+  using `jcmd <pid> JFR.stop`
+* Inspect the Java Flight Recorder (jfr) file using your IDE
+  or [Java Mission Control](https://openjdk.org/projects/jmc/)
