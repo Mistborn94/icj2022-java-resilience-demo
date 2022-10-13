@@ -25,8 +25,9 @@ To run the load tests against a local instance, open the jmx file with jmeter an
 * Start up the java app. Make sure `-XX:+HeapDumpOnOutOfMemoryError` is enabled
 * Enable the "Memory Leak" group in the load test
 * Run the load test until the jvm runs out of memory
-* (Optional) Take a manual heap dump using jmap or jcmd
-* Inspect the heap dump with [Eclipse Memory Analyzer](https://www.eclipse.org/mat/)
+* (Optional) Take a manual heap dump using `jmap -dump:live,file=<file>.hprof <pid>`
+  or `jcmd <pid> GC.heap_dump <file>.hprof`
+* Inspect the heap dumps with [Eclipse Memory Analyzer](https://www.eclipse.org/mat/)
 
 ### Thread Contention
 
